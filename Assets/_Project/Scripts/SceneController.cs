@@ -14,12 +14,28 @@ public class SceneController : MonoBehaviour {
     public const int gridCols = 4;
     public const float offsetX = 2f;
     public const float offsetY = 2.5f;
+    private int[] shuffledCardIds;
 
 
 	// Use this for initialization
 	void Start () {
+        shuffledCardIds = shuffleCards();
         createCards();
 	}
+
+    private int[] shuffleCards()
+    {
+        int[] cardIds = { 0,0,1,1,2,2,3,3 };
+        int[] shuffledIds = cardIds.Clone() as int[];
+        for (int ii =0; ii < shuffledIds.Length; ii++)
+        {
+            int tmp = shuffledIds[ii];
+            int rand = UnityEngine.Random.Range(ii, shuffledIds.Length);
+            shuffledIds[ii] = shuffledIds[rand];
+            shuffledIds[rand] = tmp;
+        }
+        return shuffledIds;
+    }
 
     private void createCards()
     {
@@ -45,12 +61,18 @@ public class SceneController : MonoBehaviour {
         {
             card = Instantiate(originalCard) as MemoryCard;
         }
-        int id = UnityEngine.Random.Range(0, images.Length);
+        int id = getCardId(col, row);
         card.SetCard(id, images[id]);
 
         float posX = (offsetX * col) + startPos.x;
         float posY = -(offsetY * row) + startPos.y;
         card.transform.position = new Vector3(posX, posY, startPos.z);
+    }
+
+    private int getCardId(int col, int row)
+    {
+        int index = row * gridCols + col;
+        return shuffledCardIds[index];
     }
 
     // Update is called once per frame
