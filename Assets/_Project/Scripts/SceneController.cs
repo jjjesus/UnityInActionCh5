@@ -10,11 +10,20 @@ public class SceneController : MonoBehaviour {
     [SerializeField]
     private Sprite[] images;
 
+    [SerializeField]
+    private GameTurn gameTurn;
+
     public const int gridRows = 2;
     public const int gridCols = 4;
     public const float offsetX = 2f;
     public const float offsetY = 2.5f;
     private int[] shuffledCardIds;
+
+    public int Score
+    {
+        get { return gameTurn.Score; }
+        set { gameTurn.Score = value;  }
+    }
 
 
 	// Use this for initialization
@@ -22,6 +31,16 @@ public class SceneController : MonoBehaviour {
         shuffledCardIds = shuffleCards();
         createCards();
 	}
+
+    public bool CanReveal()
+    {
+        return gameTurn.CanReveal;
+    }
+
+    public void CardRevealed(MemoryCard card)
+    {
+        gameTurn.CardRevealed(card);
+    }
 
     private int[] shuffleCards()
     {

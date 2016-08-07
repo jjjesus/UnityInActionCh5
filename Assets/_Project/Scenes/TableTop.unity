@@ -123,6 +123,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 21f10373e6ebd8f4d9956b9d74117848, type: 3}
   - {fileID: 21300000, guid: 41a2e95f57e24644498eb0d211f13486, type: 3}
   - {fileID: 21300000, guid: 65206966967463e4f9d884de06753580, type: 3}
+  gameTurn: {fileID: 1781174858}
 --- !u!4 &50029107
 Transform:
   m_ObjectHideFlags: 0
@@ -228,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardBack: {fileID: 173999184}
   image: {fileID: 21300000, guid: 21f10373e6ebd8f4d9956b9d74117848, type: 3}
-  sceneController: {fileID: 0}
+  sceneController: {fileID: 50029106}
 --- !u!1 &89708377
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +379,46 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!1 &1781174857
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1781174859}
+  - 114: {fileID: 1781174858}
+  m_Layer: 0
+  m_Name: GameTurn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1781174858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1781174857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d27b8b0e483911d418cabf6c47fdf90a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1781174859
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1781174857}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &2134177000
 GameObject:
   m_ObjectHideFlags: 0
