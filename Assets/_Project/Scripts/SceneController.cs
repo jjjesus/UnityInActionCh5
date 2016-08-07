@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour {
 
@@ -31,6 +32,12 @@ public class SceneController : MonoBehaviour {
     public void UpdateScoreLabel(string scoreText)
     {
         scoreLabel.text = scoreText;
+    }
+
+    public void Restart()
+    {
+        //Application.LoadLevel("TableTop");
+        SceneManager.LoadScene("TableTop");
     }
 
 
