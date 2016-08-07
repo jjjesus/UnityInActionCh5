@@ -13,6 +13,9 @@ public class SceneController : MonoBehaviour {
     [SerializeField]
     private GameTurn gameTurn;
 
+    [SerializeField]
+    private TextMesh scoreLabel;
+
     public const int gridRows = 2;
     public const int gridCols = 4;
     public const float offsetX = 2f;
@@ -25,9 +28,15 @@ public class SceneController : MonoBehaviour {
         set { gameTurn.Score = value;  }
     }
 
+    public void UpdateScoreLabel(string scoreText)
+    {
+        scoreLabel.text = scoreText;
+    }
+
 
 	// Use this for initialization
 	void Start () {
+        gameTurn.SetSceneController(this);
         shuffledCardIds = shuffleCards();
         createCards();
 	}

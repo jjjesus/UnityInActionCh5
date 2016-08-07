@@ -6,6 +6,7 @@ public class GameTurn : MonoBehaviour {
 
     private MemoryCard _firstRevealed;
     private MemoryCard _secondRevealed;
+    private SceneController sceneController;
     private int _score;
     public int Score
     {
@@ -18,6 +19,10 @@ public class GameTurn : MonoBehaviour {
         get { return _secondRevealed; }
     }
 
+    public void SetSceneController(SceneController sceneController)
+    {
+        this.sceneController = sceneController;
+    }
 
     // Use this for initialization
     void Start () {
@@ -46,6 +51,7 @@ public class GameTurn : MonoBehaviour {
         if (_firstRevealed.id == _secondRevealed.id)
         {
             _score++;
+            sceneController.UpdateScoreLabel("Score: " + _score);
         }
         else
         {
